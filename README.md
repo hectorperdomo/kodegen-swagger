@@ -1,1 +1,1 @@
-# vacation.planner.service
+# kodegen swagger
