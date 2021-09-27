@@ -1,0 +1,38 @@
+{
+  "name": "kodegen-swagger",
+  "version": "1.0.0",
+  "description": "kodegen swagger plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "author": "Hector Perdomo",
+  "license": "ISC",
+  "dependencies": {
+    "case-changer": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.1",
+    "@types/pluralize": "0.0.29",
+    "change-case": "^4.1.2",
+    "change-case-all": "^1.0.14",
+    "handlebars": "^4.7.7",
+    "pluralize": "^8.0.0",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hectorperdomo/kodgen-swagger.git"
+  },
+  "keywords": [
+    "code",
+    "generator",
+    "ddd"
+  ],
+  "bugs": {
+    "url": "https://github.com/hectorperdomo/kodgen-swagger/issues"
+  },
+  "homepage": "https://github.com/hectorperdomo/kodgen-swagger#readme"
+}

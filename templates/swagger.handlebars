@@ -1,0 +1,47 @@
+swagger: "2.0"
+info:
+  description: "{{comment}}"
+  version: "1.0.0"
+  title: "Swagger {{titleCase name}}"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "hector@impactsoftware.us"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "{{lowerCase name}}.swagger.io"
+basePath: "/v2"
+tags:
+{{> tags }}
+schemes:
+- "https"
+- "http"
+paths:
+{{> paths }}
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+{{> definitions }}
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

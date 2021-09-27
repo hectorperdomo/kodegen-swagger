@@ -1,0 +1,9 @@
+{{~#each classes}}
+{{#if entityType.aggregateroot}}
+- name: "{{lowerCase entity}}"
+  description: "{{comment}}"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+{{/if}}
+{{/each}}

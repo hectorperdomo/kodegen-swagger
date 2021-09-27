@@ -1,0 +1,52 @@
+{{#*inline "TypeConverter"}}
+{{#with type}}
+{{#if text}}type: "string"
+{{else if yesno}}type: "boolean"
+{{else if decimal}}type: "number"
+format: "double"
+{{else if float}}type: "number"
+format: "float"
+{{else if integer}}type: "integer
+format: "int{{length}}"
+{{else if date}}type: "string"
+format: "date"
+{{else if timestamp}}type: "string"
+format: "date-time"
+{{else if datetime}}type: "string"
+format: "date-time"
+{{else if currency}}type: "number"
+format: "float"
+{{else if point}}type: "POINT???"
+{{else if array}}type: "array"
+xml:
+  name: "{{camelCase of}}"
+  wrapped: true
+items:
+  $ref: "#/definitions/{{pascalCase of}}"
+{{else if primaryKey}}type: "string"
+format: "uuid"
+{{else if choices}}type: "string"
+enum:
+{{#each choices}}
+- "{{.}}"
+{{/each}}
+{{~else}}type: "??"{{type}}
+{{/if}}
+{{/with}}
+{{~/inline}}
+
+
+{{~#each classes}}
+  {{pascalCase entity}}:
+    type: "object"
+    properties:
+    {{#each properties}}
+      {{#if type.array}}{{camelCase (pluralize name)}}:{{else}}{{camelCase name}}:{{/if}}
+        {{> TypeConverter}}
+      {{#if comment}}
+        description: "{{comment}}"
+      {{/if}}
+    {{/each}}
+    xml:
+      name: "{{pascalCase entity}}"
+{{/each}}
